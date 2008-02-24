@@ -46,7 +46,8 @@ cp %{SOURCE1} build.xml
 %remove_java_binaries
 
 %build
-ln -s $(build-classpath asm2/asm2) lib/asm-all-2.2.2.jar
+ln -s $(build-classpath asm2/asm2) lib/asm-2.2.2.jar
+ln -s $(build-classpath asm2/asm2-commons) lib/asm-commons-2.2.2.jar
 %{ant} all
 
 %install
