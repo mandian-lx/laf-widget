@@ -3,7 +3,7 @@
 
 Name:           laf-widget
 Version:        3.3
-Release:        %mkrel 0.0.1
+Release:        %mkrel 0.0.2
 Summary:        Support and base set of additional behaviour and widgets in java look-and-feels
 License:        BSD
 Group:          Development/Java
