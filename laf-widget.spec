@@ -18,7 +18,8 @@ BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
-This project contains a collection of "behavioural traits" or "widgets" for third-party Swing look-and-feels. The list of currently provided widgets: 
+This project contains a collection of "behavioural traits" or "widgets" for 
+third-party Swing look-and-feels. The list of currently provided widgets: 
 * Auto-completion (model-based / free-text) on editable combo boxes. 
 * Hover preview of minimized internal frames on desktop icons. 
 * Menu search panel on menu bars. 
@@ -26,9 +27,11 @@ This project contains a collection of "behavioural traits" or "widgets" for thir
 * Overview dialog on tabbed panes with optional periodic refresh. 
 * Tab paging on tabbed panes. 
 * Password strength checker on password fields. 
-* Lock border on non-editable text components and model-based editable combo boxes. 
+* Lock border on non-editable text components and 
+  model-based editable combo boxes. 
 * Select all text in text component on focus gain. 
-* Context menu on text components with edit actions (copy / paste / cut / delete / select all). 
+* Context menu on text components with edit actions 
+  (copy / paste / cut / delete / select all). 
 * Enhanced drag-and-drop support for trees. 
 * Scroll pane selector. 
 * Selecting / deselecting in text components on Escape key press.
