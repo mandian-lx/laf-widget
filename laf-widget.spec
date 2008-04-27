@@ -2,8 +2,8 @@
 #TODO: provide javadoc after/if upstream fixes the win specific build
 
 Name:           laf-widget
-Version:        3.3
-Release:        %mkrel 0.0.2
+Version:        3.4
+Release:        %mkrel 0.0.1
 Summary:        Support and base set of additional behaviour and widgets in java look-and-feels
 License:        BSD
 Group:          Development/Java
