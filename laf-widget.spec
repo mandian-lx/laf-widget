@@ -75,3 +75,30 @@ rm -rf %{buildroot}
 #%{_javadocdir}/%{name}
 #%{_javadocdir}/%{name}-%{version}
   
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 3.4.01-0.0.3mdv2011.0
++ Revision: 620047
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 3.4.01-0.0.2mdv2010.0
++ Revision: 429699
+- rebuild
+
+* Fri Jun 13 2008 Alexander Kurtakov <akurtakov@mandriva.org> 3.4.01-0.0.1mdv2009.0
++ Revision: 218799
+- new version 3.4.01
+- new version
+
+* Mon Feb 25 2008 Alexander Kurtakov <akurtakov@mandriva.org> 3.3-0.0.2mdv2008.1
++ Revision: 174700
+- bump release
+- wrap description
+
+* Sun Feb 24 2008 Alexander Kurtakov <akurtakov@mandriva.org> 3.3-0.0.1mdv2008.1
++ Revision: 174472
+- fix build
+- import laf-widget
+
+
