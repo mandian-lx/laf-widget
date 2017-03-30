@@ -1,0 +1,123 @@
+--- laf-widget-4.3final/src/org/jvnet/lafwidget/ant/ContainerGhostingAugmenter.java.bool
++++ laf-widget-4.3final/src/org/jvnet/lafwidget/ant/ContainerGhostingAugmenter.java
+@@ -370,7 +370,7 @@
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+ 			InfoClassVisitor infoAdapter = new InfoClassVisitor();
+-			cr.accept(infoAdapter, false);
++			cr.accept(infoAdapter, 0);
+ 			existingMethods = infoAdapter.getMethods();
+ 			existingFields = infoAdapter.getFields();
+ 		} catch (Exception e) {
+@@ -397,10 +397,10 @@
+ 		try {
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+-			ClassWriter cw = new ClassWriter(false);
++			ClassWriter cw = new ClassWriter(0);
+ 			ClassVisitor cv = new AugmentClassAdapter(cw, existingMethods,
+ 					existingFields, methodToAugment, toInjectAfterOriginal);
+-			cr.accept(cv, false);
++			cr.accept(cv, 0);
+ 			b = cw.toByteArray();
+ 		} catch (Exception e) {
+ 			throw new AugmentException(name, e);
+--- laf-widget-4.3final/src/org/jvnet/lafwidget/ant/LafMainClassAugmenter.java.bool
++++ laf-widget-4.3final/src/org/jvnet/lafwidget/ant/LafMainClassAugmenter.java
+@@ -302,9 +302,9 @@
+ 		try {
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+-			// ClassWriter cw = new ClassWriter(false);
++			// ClassWriter cw = new ClassWriter(0);
+ 			InfoClassVisitor infoAdapter = new InfoClassVisitor();
+-			cr.accept(infoAdapter, false);
++			cr.accept(infoAdapter, 0);
+ 			existingMethods = infoAdapter.getMethods();
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+@@ -322,10 +322,10 @@
+ 		try {
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+-			ClassWriter cw = new ClassWriter(false);
++			ClassWriter cw = new ClassWriter(0);
+ 			AugmentClassAdapter cv = new AugmentClassAdapter(cw,
+ 					existingMethods, origMethod);
+-			cr.accept(cv, false);
++			cr.accept(cv, 0);
+ 			b = cw.toByteArray();
+ 			superClassName = cv.getSuperClassName();
+ 		} catch (Exception e) {
+--- laf-widget-4.3final/src/org/jvnet/lafwidget/ant/UiDelegateWriterOneParamCtr.java.bool
++++ laf-widget-4.3final/src/org/jvnet/lafwidget/ant/UiDelegateWriterOneParamCtr.java
+@@ -42,7 +42,7 @@
+ 	 * Creates a new bytecode writer.
+ 	 */
+ 	public UiDelegateWriterOneParamCtr() {
+-		super(false);
++		super(ClassWriter.COMPUTE_MAXS);
+ 	}
+ 
+ 	/**
+--- laf-widget-4.3final/src/org/jvnet/lafwidget/ant/UiDelegateWriterEmptyCtr.java.bool
++++ laf-widget-4.3final/src/org/jvnet/lafwidget/ant/UiDelegateWriterEmptyCtr.java
+@@ -42,7 +42,7 @@
+ 	 * Creates a new bytecode writer.
+ 	 */
+ 	public UiDelegateWriterEmptyCtr() {
+-		super(false);
++		super(0);
+ 	}
+ 
+ 	/**
+--- laf-widget-4.3final/src/org/jvnet/lafwidget/ant/IconGhostingAugmenter.java.bool
++++ laf-widget-4.3final/src/org/jvnet/lafwidget/ant/IconGhostingAugmenter.java
+@@ -593,7 +593,7 @@
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+ 			InfoClassVisitor infoAdapter = new InfoClassVisitor();
+-			cr.accept(infoAdapter, false);
++			cr.accept(infoAdapter, 0);
+ 			existingMethods = infoAdapter.getMethods();
+ 			existingFields = infoAdapter.getFields();
+ 		} catch (Exception e) {
+@@ -619,12 +619,12 @@
+ 		try {
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+-			ClassWriter cw = new ClassWriter(false);
++			ClassWriter cw = new ClassWriter(0);
+ 			ClassVisitor cv = new AugmentClassAdapter(cw, existingMethods,
+ 					existingFields, methodToAugment// , methodInstallListeners,
+ 			// methodUninstallListeners);
+ 			);
+-			cr.accept(cv, false);
++			cr.accept(cv, 0);
+ 			b = cw.toByteArray();
+ 		} catch (Exception e) {
+ 			throw new AugmentException(name, e);
+--- laf-widget-4.3final/src/org/jvnet/lafwidget/ant/UiDelegateAugmenter.java.bool
++++ laf-widget-4.3final/src/org/jvnet/lafwidget/ant/UiDelegateAugmenter.java
+@@ -715,7 +715,7 @@
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+ 			InfoClassVisitor infoAdapter = new InfoClassVisitor();
+-			cr.accept(infoAdapter, false);
++			cr.accept(infoAdapter, 0);
+ 			existingMethods = infoAdapter.getMethods();
+ 			existingFields = infoAdapter.getFields();
+ 		} catch (Exception e) {
+@@ -741,10 +741,10 @@
+ 		try {
+ 			is = new FileInputStream(resource);
+ 			ClassReader cr = new ClassReader(is);
+-			ClassWriter cw = new ClassWriter(false);
++			ClassWriter cw = new ClassWriter(0);
+ 			ClassVisitor cv = new AugmentClassAdapter(cw, existingMethods,
+ 					existingFields, methodsToAugment);
+-			cr.accept(cv, false);
++			cr.accept(cv, 0);
+ 			b = cw.toByteArray();
+ 		} catch (Exception e) {
+ 			throw new AugmentException(name, e);

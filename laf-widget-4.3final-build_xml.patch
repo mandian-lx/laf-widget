@@ -1,0 +1,61 @@
+--- laf-widget-4.3final/build.xml.orig
++++ laf-widget-4.3final/build.xml
+@@ -131,7 +131,7 @@
+ 	<target name="jar-bin" description="create runtime jar">
+ 		<mkdir dir="${laf-widget.drop.dir}" />
+ 		<delete file="${laf-widget.drop.dir}/laf-widget.jar" />
+-		<jar compress="true" destfile="${laf-widget.drop.dir}/laf-widget.jar">
++		<jar compress="true" destfile="${laf-widget.drop.dir}/laf-widget.jar" index="true">
+ 			<fileset dir="${laf-widget.output.dir}/" excludes="test/**,contrib/com/blogofbug/examples/**" />
+ 			<fileset dir="${module.laf-widget.basedir}/" includes="resources/**" />
+ 			<manifest>
+@@ -139,12 +139,12 @@
+ 				<attribute name="Laf-Widget-BuildStamp" value="${build.time}" />
+ 			</manifest>
+ 		</jar>
+-		<copy file="${laf-widget.drop.dir}/laf-widget.jar" todir="${module.laf-widget.basedir}/../substance/lib/" />
++		<!--copy file="${laf-widget.drop.dir}/laf-widget.jar" todir="${module.laf-widget.basedir}/../substance/lib/" /-->
+ 	</target>
+ 
+ 	<target name="jar-bin-tst" description="create test runtime jar">
+ 		<delete file="${laf-widget.drop.dir}/laf-widget-tst.jar" />
+-		<jar destfile="${laf-widget.drop.dir}/laf-widget-tst.jar">
++		<jar destfile="${laf-widget.drop.dir}/laf-widget-tst.jar" index="true">
+ 			<fileset dir="${laf-widget.output.dir}/" includes="test/**" />
+ 			<manifest>
+ 				<attribute name="Laf-Widget-Version" value="${laf-widget.version}" />
+@@ -170,6 +170,27 @@
+ 		</zip>
+ 	</target>
+ 
++	<target name="javadoc" depends="init" description="Creates the API documentation using JavaDoc." >
++		<mkdir dir="api"/>
++		<javadoc
++		    sourcepath="${laf-widget.src.dir}"
++		    packagenames="org.jvnet.lafwidget.*"
++		    destdir="api"
++		    encoding="UTF-8"
++		    access="protected"
++		    author="true"
++		    version="true"
++		    use="true"
++		    windowtitle="laf-widget ${laf-widget.version} API"
++		    doctitle="laf-widget  ${laf-widget.version} API">
++		<classpath>
++			<fileset dir="${laf-widget.drop.dir}">
++				<include name="*.jar"/>
++			</fileset>
++		</classpath>
++		</javadoc>
++	</target>
++
+ 	<target name="timestamp">
+ 		<tstamp>
+ 			<format property="build.time" pattern="MMMM d, yyyy hh:mm:ss z" />
+@@ -186,4 +207,4 @@
+ 	<target name="clean" depends="clean.module.laf-widget" description="cleanup all" />
+ 
+ 	<target name="all" depends="timestamp, init, clean, compile.module.laf-widget, jar" description="build all" />
+-</project>
+\ No newline at end of file
++</project>
