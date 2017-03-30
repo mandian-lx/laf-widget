@@ -82,7 +82,7 @@ cp %{SOURCE1} ./pom.xml
 %pom_xpath_replace "pom:project/pom:version" "<version>%{version}</version>" .
 
 # Fix dependency
-%pom_change_dep ant:ant org.apache.ant:ant
+sed -i -e 's|<groupId>ant</groupId>|<groupId>org.apache.ant</groupId>|g' ./pom.xml
 
 # Set the sources and tests directory
 %pom_xpath_inject "pom:project/pom:build" "
